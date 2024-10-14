@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Sidebar';  // Import Sidebar
+import SearchBar from './components/SearchBar'; // Import SearchBar
+import Dashboard from './components/Dashboard'; // Import Dashboard component
+import './styles/Dashboard.css';                // Import global styles
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app-container">
+        {/* Hamburger Icon to toggle sidebar */}
+        <button className="hamburger" onClick={toggleSidebar}>
+          &#9776;
+        </button>
+        
+        {/* Sidebar that opens/closes based on state */}
+        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+
+        <div className="main-content">
+          {/* Search Bar will be visible on all routes */}
+          <SearchBar />
+
+          {/* Define routes for different pages */}
+          <Routes>
+            <Route path="/" element={<Dashboard />} /> {/* Dashboard page */}
+            {/* Add more routes here */}
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
