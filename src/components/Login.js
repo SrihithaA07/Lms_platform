@@ -8,7 +8,7 @@
     const navigate = useNavigate();
 
     const defaultCredentials = {
-      student: { email: 'student@gmail.com', password: 'student@123' },
+      student: { email: 's@gmail.com', password: 's123' },
       lecturer: { email: 'lecturer@gmail.com', password: 'lecturer@123' },
     };
 
