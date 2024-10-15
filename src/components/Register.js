@@ -8,14 +8,16 @@ const Register = () => {
     email: '',
     password: '',
     confirmPassword: '',
+    role: 'student', // Default to student
   });
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -66,6 +68,33 @@ const Register = () => {
           onChange={handleChange}
           required
         />
+        
+        {/* Role Selection */}
+        <div className="role-selection">
+          <label>
+            <input
+              type="radio"
+              name="role"
+              value="student"
+              checked={formData.role === 'student'}
+              onChange={handleChange}
+              required
+            />
+            Student
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="role"
+              value="lecturer"
+              checked={formData.role === 'lecturer'}
+              onChange={handleChange}
+              required
+            />
+            Lecturer
+          </label>
+        </div>
+
         <button type="submit">Register</button>
       </form>
       <p>
