@@ -1,34 +1,37 @@
 // src/components/Dashboard.js
 import React from 'react';
-import { Line } from 'react-chartjs-2';
 import './Dashboard.css';
 
 const Dashboard = () => {
-  const trafficData = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-    datasets: [
-      {
-        label: 'Students',
-        data: [65, 59, 80, 81, 56, 55],
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.4,
-      },
-      {
-        label: 'Teachers',
-        data: [28, 48, 40, 19, 86, 27],
-        borderColor: 'rgb(153, 102, 255)',
-        tension: 0.4,
-      },
-    ],
-  };
+  // Sample course data
+  const courses = [
+    { id: 1, name: 'Computer Science', code: 'CS101' },
+    { id: 2, name: 'Civil Engineering', code: 'CE101' },
+    { id: 3, name: 'Architecture', code: 'AR101' },
+    { id: 4, name: 'Business Management', code: 'BM101' },
+    { id: 5, name: 'Economics', code: 'EC101' },
+    { id: 6, name: 'Mathematics', code: 'MA101' },
+  ];
 
   return (
-    <div className="dashboard-container">
-      <h2>Dashboard</h2>
-      <div className="chart-container">
-        <h3>Website Traffic</h3>
-        <Line data={trafficData} />
+    <div className="dashboard">
+      <h2>Welcome to the Dashboard</h2>
+
+      {/* Courses Section */}
+      <div className="courses-section">
+        <h3>Available Courses</h3>
+        <ul className="courses-list">
+          {courses.map((course) => (
+            <li key={course.id} className="course-item">
+              <div className="course-info">
+                <strong>{course.name}</strong> - <span>{course.code}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
+
+      {/* Other content can be added here */}
     </div>
   );
 };
