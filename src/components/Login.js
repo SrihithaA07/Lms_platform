@@ -71,6 +71,7 @@
             <option value="lecturer">Lecturer</option>
           </select>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <br></br>
           <button type="submit">Login</button>
         </form>
         <p>

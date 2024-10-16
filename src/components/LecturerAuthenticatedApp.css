@@ -1,0 +1,38 @@
+.dashboard {
+    text-align: center;
+    padding: 20px;
+    margin-left:0px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of cards */
+    justify-content: flex-start; /* Aligns cards to the left */
+    margin: -10px; /* Negative margin to counteract child margin */
+}
+
+.card {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    width: calc(25% - 20px); /* Width for four cards per row */
+    height: 150px;
+    margin: 10px; /* Margin for spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-content {
+    color: #333;
+}
+
+h3 {
+    font-size: 18px;
+}
